@@ -12,12 +12,19 @@ const CallConnected = ({
   messages,
   onHangup,
   onTriggerSnapshot,
+  onToggleFullScreen,
   style
 }) => {
   return (
     <View style={style}>
       <ImageViewer call={call} messages={messages} />
       <View style={styles.callConnectedButtons}>
+        <Button
+          style={styles.callConnectedButton}
+          icon="ios-resize-outline"
+          onPress={onToggleFullScreen}
+        />
+
         <Button
           style={styles.callConnectedButton}
           icon="ios-camera-outline"
@@ -40,6 +47,7 @@ CallConnected.propTypes = {
   call: SparkPropTypes.call.isRequired,
   messages: SparkPropTypes.messages.isRequired,
   onTriggerSnapshot: PropTypes.func.isRequired,
+  onToggleFullScreen: PropTypes.func.isRequired,
   onHangup: PropTypes.func.isRequired,
   style: ViewPropTypes.style
 };
